@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laman | Vacancies</title>
+    <link href="../assets/img/icon.png" rel="icon" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+      /* Reset some default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* Apply a background color to the body */
+      body {
+        background-color: #f0f0f0;
+      }
+
+      /* Style the header */
+      header {
+        background-color: #1d3c45;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      /* Style the container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Style the gallery */
+      .gallery-kapal {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+      }
+
+      /* Style the kapal-item for hover effect */
+      .kapal-item {
+        margin: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        width: 250px;
+        transition: transform 0.3s; /* Menambahkan animasi transisi */
+      }
+
+      /* Scale up the kapal-image on hover */
+      .kapal-item:hover {
+        transform: scale(1.1); /* Memperbesar gambar saat dihover */
+      }
+
+      .kapal-image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+      }
+
+      h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #000000;
+      }
+
+      /* Style the links */
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      a:hover {
+        color: #007bff;
+      }
+
+      /* Style the scroll-to-top button */
+      #scroll-to-top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        background-color: #1d3c45;
+        color: #fff;
+        border: none;
+        border-radius: 20%;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      #scroll-to-top:hover {
+        background-color: #142328;
+      }
+
+      /* Style the scroll-to-top button icon */
+      #scroll-to-top i {
+        font-size: 24px;
+      }
+
+      /* Smooth scroll effect */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vacancies</h1>
+    </header>
+    <div class="container">
+      <div class="gallery-kapal">
+        <!-- Start Foto Kapal -->
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/ahts.jpg" alt="Kapal 1" class="kapal-image" />
+          </a>
+          <h3>AHTS</h3>
+        </div>
+
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Barge ship.jpg" alt="Kapal 2" class="kapal-image" />
+          </a>
+          <h3>Barge ship</h3>
+        </div>
+
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Bulk carrier.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Bulk carrier</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/container.jpg.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Container</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Cruise ship.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Cruise ship</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/General cargo.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>General cargo</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/LCT.jpeg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>LCT</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Pasangger.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Pasangger</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Tanker.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Tanker</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Tug.jpg.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Tug</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Osv.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Osv</h3>
+        </div>
+        <div class="kapal-item">
+          <a href="../php/lowonganKerja.php">
+            <img src="../assets/img/kapal/Bitumen.jpg" alt="Kapal 3" class="kapal-image" />
+          </a>
+          <h3>Bitumen</h3>
+        </div>
+        <!-- Lanjutkan dengan menambahkan lebih banyak foto kapal sesuai kebutuhan Anda -->
+      </div>
+      <button id="scroll-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+    <script>
+      // Get the button
+      var scrollToTopButton = document.getElementById('scroll-to-top');
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollToTopButton.style.display = 'block';
+        } else {
+          scrollToTopButton.style.display = 'none';
+        }
+      };
+
+      // Scroll back to the top when the button is clicked
+      scrollToTopButton.addEventListener('click', function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laman | Tambah Lowongan Kerja</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/adminStyle.css" />
+    <!-- Favicons -->
+    <link href="../assets/img/icon.png" rel="icon" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <style>
+      /* CSS untuk menghilangkan border pada input saat dalam keadaan focus */
+      input:focus {
+        outline: none;
+        /* Menghilangkan outline (border) saat dalam keadaan focus */
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        background: #1d3c45;
+        padding: 20px 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        justify-content: space-between;
+      }
+
+      .nav-links li {
+        list-style: none;
+        margin: 0 12px;
+      }
+
+      .nav-links li a {
+        position: relative;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 6px 0;
+        text-decoration: none;
+      }
+
+      .nav-links li a:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: #34efdf;
+        border-radius: 12px;
+        transition: all 0.4s ease;
+      }
+
+      .nav-links li a:hover:before {
+        width: 100%;
+      }
+
+      .nav-links li.center a:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav-links li.upward a:before {
+        width: 100%;
+        bottom: -5px;
+        opacity: 0;
+      }
+
+      .nav-links li.upward a:hover:before {
+        bottom: 0px;
+        opacity: 1;
+      }
+
+      .nav-links li.forward a:before {
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s ease;
+      }
+
+      .nav-links li.forward a:hover:before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .sponsor-container {
+        display: flex;
+        background-color: whitesmoke;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        padding: 20px;
+      }
+
+      .sponsor-container img {
+        max-width: 100px;
+        height: auto;
+        margin: 10px;
+      }
+
+      /* Tampilan teks "Lihat Document Karyawan" */
+      a.lihat-document {
+        display: inline-block;
+        background-color: #1d3c45;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 16px;
+        font-size: 18px;
+        transition: background-color 0.3s;
+      }
+
+      a.lihat-document:hover {
+        background-color: #147e8e;
+      }
+
+      /* Stil dasar footer
+        footer {
+            background-color: #1d3c45;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: absolute;
+            bottom: -160px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .social-icons li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        } */
+
+      /* Media queries untuk responsif footer */
+      @media screen and (max-width: 768px) {
+        .container {
+          width: 90%;
+          /* Mengurangi lebar kontainer untuk perangkat dengan lebar kurang dari 768px */
+        }
+
+        .container label {
+          font-size: 16px;
+          /* Mengurangi ukuran font label pada perangkat dengan lebar kurang dari 768px */
+        }
+
+        .container input[type='text'],
+        .container textarea,
+        .container input[type='date'] {
+          font-size: 14px;
+          /* Mengurangi ukuran font input pada perangkat dengan lebar kurang dari 768px */
+        }
+
+        header h1 {
+          font-size: 28px;
+          /* Mengurangi ukuran font header pada perangkat dengan lebar kurang dari 768px */
+        }
+
+        .container button {
+          padding: 15px 16px;
+          /* Mengurangi ukuran tombol pada perangkat dengan lebar kurang dari 768px */
+          font-size: 16px;
+          /* Mengurangi ukuran font tombol pada perangkat dengan lebar kurang dari 768px */
+        }
+
+        footer {
+          padding: 10px 0;
+          bottom: -222px;
+        }
+
+        .footer-content {
+          max-width: 90%;
+        }
+
+        .footer-content p {
+          font-size: 12px;
+        }
+
+        .social-icons a img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      @media screen and (max-width: 360px) {
+        header h1 {
+          font-size: 24px;
+          /* Mengurangi ukuran font header */
+        }
+
+        .container {
+          width: 95%;
+          /* Mengurangi lebar kontainer */
+        }
+
+        .container h1 {
+          font-size: 28px;
+          /* Mengurangi ukuran font judul dalam kontainer */
+          margin-bottom: 16px;
+        }
+
+        .container label {
+          font-size: 14px;
+          /* Mengurangi ukuran font label */
+        }
+
+        .container input[type='text'],
+        .container textarea,
+        .container input[type='date'] {
+          font-size: 14px;
+          /* Mengurangi ukuran font input */
+          padding: 8px;
+          /* Mengurangi padding input */
+        }
+
+        .container textarea {
+          height: 80px;
+          /* Mengurangi tinggi textarea */
+        }
+
+        .container button {
+          padding: 10px 16px;
+          /* Mengurangi ukuran font tombol */
+          font-size: 16px;
+        }
+
+        .container button,
+        .lihat-document {
+          margin-bottom: -16px;
+          /* Mengurangi jarak bawah antara tombol-tombol */
+        }
+
+        .nav-links {
+          padding: 10px 15px;
+          /* Mengurangi padding pada tombol navigasi */
+        }
+
+        .nav-links li a {
+          font-size: 14px;
+          /* Mengurangi ukuran font tombol navigasi */
+          padding: 4px 0;
+          /* Mengurangi padding tombol navigasi */
+        }
+      }
+
+      /* Media query untuk layar dengan lebar kurang dari 414px */
+      @media screen and (max-width: 414px) {
+        .nav-links {
+          flex-direction: column;
+          /* Mengubah tata letak menjadi tumpukan vertikal */
+          padding: 10px 15px;
+          /* Mengurangi padding */
+        }
+
+        .nav-links li {
+          margin: 6px 0;
+          /* Mengurangi margin antara tombol navigasi */
+          text-align: center;
+          /* Pusatkan teks tombol navigasi */
+        }
+
+        .nav-links li a {
+          font-size: 14px;
+          /* Mengurangi ukuran font tombol navigasi */
+          padding: 8px 0;
+          /* Mengurangi padding tombol navigasi */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Job Pelaut Indonesia</h1>
+    </header>
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../php/dataKaryawan.php">Data Karyawan</a></li>
+        <li class="center"><a href="lamanAdmin.html">Tambah Lowongan</a></li>
+        <li class="upward"><a href="../php/adminLowonganKerja.php">Lowongan</a></li>
+        <!-- <li class="forward"><a href="#">Feedback</a></li> -->
+      </ul>
+      <form action="../php/prosesTambahLowongan.php" method="POST">
+        <h1>Tambah Job Lowongan</h1>
+        <!-- <label for="judul">Judul Lowongan:</label>
+        <input type="text" id="judul" name="judul" placeholder="Isi Judul Lowongan" required /><br /> -->
+
+        <label for="deskripsi">Deskripsi Lowongan:</label>
+        <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea><br />
+
+        <!-- <label for="lokasi">Lokasi Lowongan:</label>
+        <input type="text" id="lokasi" name="lokasi" placeholder="Isi Lokasi Lowongan" required /><br /> -->
+
+        <label for="tanggal_publikasi">Tanggal Publikasi:</label>
+        <input type="date" id="tanggal_publikasi" name="tanggal_publikasi" required /><br />
+
+        <button type="submit">Tambah Lowongan</button>
+        <a href="../php/fotoKaryawan.php" class="lihat-document">Document Karyawan</a>
+        <a href="../php/viewPesanLamaran.php" class="lihat-document">Lamaran</a>
+      </form>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p id="popup-message">Lowongan Berhasil Ditambahkan!</p>
+      </div>
+    </div>
+
+    <script src="../js/addLowongan.js"></script>
+    <script>
+      // Function to check for the "popup" query string parameter and display the popup if found
+      function checkForPopup() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('popup') && urlParams.get('popup') === 'success') {
+          showPopup();
+        }
+      }
+
+      // Call the function to check for the "popup" query string parameter
+      checkForPopup();
+      // Function to remove the "popup" query string parameter from the URL
+      function removePopupParam() {
+        var url = window.location.href;
+        var urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('popup') && urlParams.get('popup') === 'success') {
+          urlParams.delete('popup');
+          var newURL = url.split('?')[0] + '?' + urlParams.toString();
+          window.history.replaceState({}, document.title, newURL);
+        }
+      }
+
+      // Call the function to remove the "popup" parameter
+      removePopupParam();
+    </script>
+  </body>
+</html>
