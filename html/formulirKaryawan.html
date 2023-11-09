@@ -16,7 +16,7 @@
       document.getElementById('formulir').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        fetch('prosesForm.php', {
+        fetch('../php/prosesForm.php', {
           method: 'POST',
           body: new FormData(this),
         })
@@ -32,9 +32,14 @@
                 text: 'Terima kasih atas pengisian formulir.',
                 footer: '<a href="">Why do I have this issue?</a>',
               });
+
+              // Sembunyikan formulir
+              document.getElementById('formulir').style.display = 'none';
+
+              // Tampilkan laman pemberitahuan
+              document.getElementById('notification').style.display = 'block';
             } else {
               // Menangani kesalahan pesan atau respons lain jika diperlukan
-              // console.error(data.message);
               Swal.fire({
                 icon: 'error',
                 title: 'Data Gagal Disimpan!',
@@ -88,39 +93,39 @@
         return true;
       }
 
-      function sendDataToServer() {
-        var xhr = new XMLHttpRequest();
-        var formData = new FormData(document.querySelector('form'));
+      // function sendDataToServer() {
+      //   var xhr = new XMLHttpRequest();
+      //   var formData = new FormData(document.querySelector('form'));
 
-        xhr.open('POST', '../php/prosesForm.php', true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
+      //   xhr.open('POST', '../php/prosesForm.php', true);
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState === 4 && xhr.status === 200) {
+      //       var response = JSON.parse(xhr.responseText);
 
-            if (response.status === 'success') {
-              // Jika penyimpanan data berhasil
-              Swal.fire({
-                icon: 'success',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>',
-              });
-              // console.log(response.message);
-            } else {
-              // Jika terjadi kesalahan
-              Swal.fire({
-                icon: 'error',
-                title: 'Data Gagal Disimpan!',
-                text: 'Mohon Mengisi Formulirnya Dengan Benar',
-                footer: '<a href="">Why do I have this issue?</a>',
-              });
-              // console.error(response.message);
-            }
-          }
-        };
+      //       if (response.status === 'success') {
+      //         // Jika penyimpanan data berhasil
+      //         Swal.fire({
+      //           icon: 'success',
+      //           title: 'Oops...',
+      //           text: 'Something went wrong!',
+      //           footer: '<a href="">Why do I have this issue?</a>',
+      //         });
+      //         // console.log(response.message);
+      //       } else {
+      //         // Jika terjadi kesalahan
+      //         Swal.fire({
+      //           icon: 'error',
+      //           title: 'Data Gagal Disimpan!',
+      //           text: 'Mohon Mengisi Formulirnya Dengan Benar',
+      //           footer: '<a href="">Why do I have this issue?</a>',
+      //         });
+      //         // console.error(response.message);
+      //       }
+      //     }
+      //   };
 
-        xhr.send(formData);
-      }
+      //   xhr.send(formData);
+      // }
 
       function confirmReset() {
         var confirmation = confirm('Anda yakin ingin menulis ulang data?');
@@ -252,24 +257,15 @@
     <header>
       <h1>Job Pelaut Indonesia</h1>
     </header>
-
-    <!-- 
-    <div class="overlay" id="overlay" style="display: none">
-      <div class="modal-box" id="pesan">
-        <i class="fas fa-check-circle"></i>
-        <h2>Your CV and resume are sent to the shipping companies to be reviewed</h2>
-        <h1>"Maintain The Course"</h1>
-        <h3>Stand By And Be Ready For Interview</h3>
-        <h2>Thank you for your submission.</h2>
-        <div class="buttons">
-          <button class="close-modal" onclick="closeModal()">OK</button>
-        </div>
-      </div>
-    </div> -->
-
+    <div id="notification" style="display: none">
+      <p>Your CV and Resume are sent to the shipping companies to be reviewed.</p>
+      <h2>"MAINTAIN THE COURSE"</h2>
+      <p>Stand By And Be Ready For Interview.</p>
+      <p>Thank You</p>
+    </div>
     <div class="container">
       <h1 style="margin-bottom: 10px">Formulir Karyawan</h1>
-      <form action="../php/prosesForm.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+      <form action="../php/prosesForm.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" id="formulir">
         <label for="nama">Nama Lengkap</label>
         <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Anda" />
 

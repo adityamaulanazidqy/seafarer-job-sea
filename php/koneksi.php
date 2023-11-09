@@ -2,7 +2,7 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "seafarer_job_sea";
+$dbname = "job_pelaut_indonesia";
 
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 if ($conn->connect_error) {
