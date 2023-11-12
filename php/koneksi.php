@@ -1,9 +1,4 @@
 <?php
-// Local
-// $hostname = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "job_pelaut_indonesia";
 
 // Domain
 $hostname = "localhost";
