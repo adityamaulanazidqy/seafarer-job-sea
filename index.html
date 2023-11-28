@@ -9,140 +9,27 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="assets/img/icon.png" rel="icon" />
+    <link href="assets/img/favicon.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-    <style>
-      /* Responsiveness for Hero Section */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 100vh;
-        background: url('assets/img/bgKapal3.png') no-repeat center center;
-        background-size: cover;
-      }
-
-      .hero h2 {
-        flex: 1; /* Mengambil sisa ruang di sebelah kiri */
-      }
-
-      /* .circle-container */
-      .circle-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr)); /* Membuat kolom sejajar */
-        gap: 20px; /* Jarak antara elemen .circle */
-        justify-content: center; /* Rata tengah secara horizontal */
-        align-items: center; /* Rata tengah secara vertikal */
-        margin-bottom: 60px;
-      }
-
-      /* Tombol "Vacancy" */
-      .button-container {
-        display: flex;
-        justify-content: center; /* Menyusun tombol secara rata tengah secara horizontal */
-        margin-top: 20px; /* Menambahkan jarak di atas tombol */
-      }
-
-      .circle {
-        width: 13vw;
-        height: 13vw;
-        background-color: #1574bc;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-size: 4vw;
-        text-align: center;
-        line-height: 18vw;
-      }
-
-      /* .circle-text */
-      .circle-text {
-        font-size: 1rem;
-        text-align: center;
-        margin-top: 10px;
-        color: #ffffff;
-        padding: 0 0px;
-      }
-
-      #cetakBtn {
-        padding: 10px 20px;
-        font-size: 1rem;
-        background-color: #1574bc;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      #cetakBtn:hover {
-        background-color: #0d6a81;
-      }
-
-      @media (min-width: 390px) {
-        .circle-text {
-          font-size: 0.5rem; /* Ubah ukuran font sesuai kebutuhan di layar lebih besar */
-          margin-top: 20px; /* Atur jarak teks dari lingkaran di bagian atas di layar lebih besar */
-          line-height: 16px;
-        }
-      }
-
-      /* Responsiveness for Hero Section on Small Screens (Layanan Ponsel) */
-      @media (max-width: 767px) {
-        .circle-container {
-          display: flex;
-          flex-direction: row; /* Mengatur elemen .circle sejajar secara horizontal */
-          justify-content: center; /* Rata tengah secara horizontal */
-          align-items: center; /* Rata tengah secara vertikal */
-        }
-
-        .circle {
-          width: 80px; /* Atur lebar elemen .circle sesuai kebutuhan di layar ponsel */
-          height: 80px; /* Atur tinggi elemen .circle sesuai kebutuhan di layar ponsel */
-          line-height: 100px;
-          font-size: 16px; /* Atur ukuran font sesuai kebutuhan di layar ponsel */
-          margin-top: 20px;
-        }
-
-        .circle-text {
-          font-size: 12px; /* Atur ukuran font teks sesuai kebutuhan di layar ponsel */
-        }
-
-        .circle span {
-          margin-top: 50px;
-        }
-      }
-
-      /* Responsiveness for even larger screens */
-      @media (min-width: 1200px) {
-        .circle-text {
-          font-size: 1.5rem; /* Ubah ukuran font sesuai kebutuhan di layar sangat besar */
-          margin-top: 30px; /* Atur jarak teks dari lingkaran di bagian atas di layar sangat besar */
-        }
-      }
-    </style>
     <script>
       // Fungsi ini akan dipanggil ketika pengguna mengklik tautan "ADMIN"
       function showPasswordPrompt() {
@@ -163,249 +50,258 @@
     </script>
   </head>
 
-  <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
+  <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-      <div class="container-fluid d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+    <header id="header" class="header d-flex align-items-center">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img srassets/img/logo.png" alt=""> -->
-          <h1>Dashboard</h1>
-          <span>.</span>
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1>Dashboard<span>.</span></h1>
         </a>
 
-        <!-- Nav Menu -->
-        <nav id="navmenu" class="navmenu">
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="javascript:void(0)" onclick="showPasswordPrompt()">Host</a></li>
+          </ul>
         </nav>
-        <!-- End Nav Menu -->
-
-        <a class="btn-getstarted" href="javascript:void(0)" onclick="showPasswordPrompt()">HOST</a>
+        <!-- .navbar -->
       </div>
     </header>
     <!-- End Header -->
 
-    <main id="main">
-      <!-- Hero Section - Home Page -->
-      <section id="hero" class="hero">
-        <img src="assets/img/bgKapal3.png" alt="" data-aos="fade-in" />
-
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero">
+      <div class="info d-flex align-items-center">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-              <h2 style="font-size: 4rem">SEAFARER JOBS</h2>
-              <div class="circle-container">
-                <div class="circle">
-                  <span>50+</span>
-                  <div class="circle-text">Shipping Companies</div>
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2 data-aos="fade-down">Seafarer <span>Jobs</span></h2>
+              <div class="countdown d-flex justify-content-center" data-count="2023/12/5">
+                <div>
+                  <h3>50+</h3>
+                  <h4>Shipping Companies</h4>
                 </div>
-                <div class="circle">
-                  <span>100+</span>
-                  <div class="circle-text">Vessel</div>
+                <div>
+                  <h3>100+</h3>
+                  <h4>Vessel</h4>
                 </div>
-                <div class="circle">
-                  <span>700+</span>
-                  <div class="circle-text">Onboard Crew</div>
+                <div>
+                  <h3>700+</h3>
+                  <h4>Onboard Crew</h4>
                 </div>
               </div>
-            </div>
-            <div class="button-container">
-              <a href="html/lamanVacancies.html"><input type="submit" value="Vacancy" id="cetakBtn" /></a>
+              <!-- <p data-aos="fade-up">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+              </p> -->
+              <a data-aos="fade-up" data-aos-delay="200" href="html/lamanVacancies.html" class="btn-get-started">Vacancy</a>
             </div>
           </div>
         </div>
-      </section>
-      <!-- End Hero Section -->
+      </div>
 
-      <!-- Clients Section - Home Page -->
-      <section id="clients" class="clients">
-        <div class="container-fluid" data-aos="fade-up">
-          <div class="row gy-4">
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.hmm21.com/company.do">
-                <img src="assets/img/logoPerusahaan/03743ee4dd7379c90ac838668040b22c.webp" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-item active" style="background-image: url(assets/img/bgKapal2.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/kapal/ahts.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/kapal/Barge\ ship.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/kapal/Bitumen.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/kapal/Bulk\ carrier.jpg)"></div>
 
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.evergreen-marine.com/">
-                <img src="assets/img/logoPerusahaan/1024px-Evergreen_Roundel.svg.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
 
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.wanhai.com/views/Main.xhtml">
-                <img src="assets/img/logoPerusahaan/1265827295c6892f0e19.webp" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+    <!-- End Hero Section -->
 
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.nyk.com/english/">
-                <img src="assets/img/logoPerusahaan/1280px-Nippon_Yusen_company_logo.svg.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.pilship.com/">
-                <img src="assets/img/logoPerusahaan/5e20d39129408a69f1c9d795637b2589.webp" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.hamburgsud.com/">
-                <img src="assets/img/logoPerusahaan/643fc740a7aa4e2001a2c6a6_643eca31212730365666fac2_hamburg_sud_logo.webp" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.adnoc.ae/">
-                <img src="assets/img/logoPerusahaan/Abu_Dhabi_National_Oil_Company_logo.svg.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.apl.com/">
-                <img src="assets/img/logoPerusahaan/APL_logo.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.bourbonoffshore.com/en">
-                <img src="assets/img/logoPerusahaan/bourbon.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.bsm-indonesia.com/">
-                <img src="assets/img/logoPerusahaan/bsm-logo-rgb-2-w500-o.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.cma-cgm.com/">
-                <img src="assets/img/logoPerusahaan/CMA_CGM_Company_Logo_July_2017-230x173.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://lines.coscoshipping.com/home/">
-                <img src="assets/img/logoPerusahaan/COSCO-230x148.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.hapag-lloyd.com/en/online-business/quotation/quick-quotes.html?utm_source=bing&utm_medium=cpc&utm_campaign=hapag_lloyd_id_eng_brand_search&utm_term=hapag%20lloyd&msclkid=e61205bef827143a518a609fb12aa53e">
-                <img src="assets/img/logoPerusahaan/csm_Hapag-Lloyd_WEB_b7bb72733c.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://csship.com/index.php">
-                <img src="assets/img/logoPerusahaan/Cuplikan_layar_2023-10-09_115451-removebg-preview.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.x-pressfeeders.com/">
-                <img src="assets/img/logoPerusahaan/logo.webp" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.kline.co.jp/en/index.html">
-                <img src="assets/img/logoPerusahaan/logo_hires.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.msc.com/">
-                <img src="assets/img/logoPerusahaan/logo_msccargo_social_media-150x150.jpg" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.maersk.com/">
-                <img src="assets/img/logoPerusahaan/MAERSK-230x62.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.mol.co.jp/en/">
-                <img src="assets/img/logoPerusahaan/Mitsui_O.S.K._Lines_logo.svg" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.oldendorff.com/">
-                <img src="assets/img/logoPerusahaan/oldendorff.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.oocl.com/eng/Pages/default.aspx">
-                <img src="assets/img/logoPerusahaan/oocl.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://rawabiholding.com/#Rawabi_holding_home">
-                <img src="assets/img/logoPerusahaan/rawabi.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.aramco.com/">
-                <img src="assets/img/logoPerusahaan/Saudi-Aramco-Logo.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.unitedagainstnucleariran.com/company/united-arab-shipping-company-ua">
-                <img src="assets/img/logoPerusahaan/united-arab-shipping-company-s-a-g-logo-7463C5C4A6-seeklogo.com.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.yangming.com/">
-                <img src="assets/img/logoPerusahaan/YM.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
-            <div class="col-xl-2 col-md-3 col-6 client-logo">
-              <a href="https://www.zim.com/">
-                <img src="assets/img/logoPerusahaan/ZIM_Logo.svg.png" class="img-fluid" alt="" />
-              </a>
-            </div>
-            <!-- End Client Item -->
+    <!-- Clients Section - Home Page -->
+    <section id="clients" class="clients">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.hmm21.com/company.do">
+              <img src="assets/img/logoPerusahaan/03743ee4dd7379c90ac838668040b22c.webp" class="img-fluid" alt="" />
+            </a>
           </div>
+          <!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.evergreen-marine.com/">
+              <img src="assets/img/logoPerusahaan/1024px-Evergreen_Roundel.svg.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.wanhai.com/views/Main.xhtml">
+              <img src="assets/img/logoPerusahaan/1265827295c6892f0e19.webp" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.nyk.com/english/">
+              <img src="assets/img/logoPerusahaan/1280px-Nippon_Yusen_company_logo.svg.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.pilship.com/">
+              <img src="assets/img/logoPerusahaan/5e20d39129408a69f1c9d795637b2589.webp" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.hamburgsud.com/">
+              <img src="assets/img/logoPerusahaan/643fc740a7aa4e2001a2c6a6_643eca31212730365666fac2_hamburg_sud_logo.webp" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.adnoc.ae/">
+              <img src="assets/img/logoPerusahaan/Abu_Dhabi_National_Oil_Company_logo.svg.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.apl.com/">
+              <img src="assets/img/logoPerusahaan/APL_logo.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.bourbonoffshore.com/en">
+              <img src="assets/img/logoPerusahaan/bourbon.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.bsm-indonesia.com/">
+              <img src="assets/img/logoPerusahaan/bsm-logo-rgb-2-w500-o.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.cma-cgm.com/">
+              <img src="assets/img/logoPerusahaan/CMA_CGM_Company_Logo_July_2017-230x173.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://lines.coscoshipping.com/home/">
+              <img src="assets/img/logoPerusahaan/COSCO-230x148.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.hapag-lloyd.com/en/online-business/quotation/quick-quotes.html?utm_source=bing&utm_medium=cpc&utm_campaign=hapag_lloyd_id_eng_brand_search&utm_term=hapag%20lloyd&msclkid=e61205bef827143a518a609fb12aa53e">
+              <img src="assets/img/logoPerusahaan/csm_Hapag-Lloyd_WEB_b7bb72733c.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://csship.com/index.php">
+              <img src="assets/img/logoPerusahaan/Cuplikan_layar_2023-10-09_115451-removebg-preview.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.x-pressfeeders.com/">
+              <img src="assets/img/logoPerusahaan/logo.webp" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.kline.co.jp/en/index.html">
+              <img src="assets/img/logoPerusahaan/logo_hires.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.msc.com/">
+              <img src="assets/img/logoPerusahaan/logo_msccargo_social_media-150x150.jpg" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.maersk.com/">
+              <img src="assets/img/logoPerusahaan/MAERSK-230x62.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.mol.co.jp/en/">
+              <img src="assets/img/logoPerusahaan/Mitsui_O.S.K._Lines_logo.svg" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.oldendorff.com/">
+              <img src="assets/img/logoPerusahaan/oldendorff.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.oocl.com/eng/Pages/default.aspx">
+              <img src="assets/img/logoPerusahaan/oocl.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://rawabiholding.com/#Rawabi_holding_home">
+              <img src="assets/img/logoPerusahaan/rawabi.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.aramco.com/">
+              <img src="assets/img/logoPerusahaan/Saudi-Aramco-Logo.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.unitedagainstnucleariran.com/company/united-arab-shipping-company-ua">
+              <img src="assets/img/logoPerusahaan/united-arab-shipping-company-s-a-g-logo-7463C5C4A6-seeklogo.com.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.yangming.com/">
+              <img src="assets/img/logoPerusahaan/YM.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://www.zim.com/">
+              <img src="assets/img/logoPerusahaan/ZIM_Logo.svg.png" class="img-fluid" alt="" />
+            </a>
+          </div>
+          <!-- End Client Item -->
         </div>
-      </section>
-      <!-- End Clients Section -->
-    </main>
+      </div>
+    </section>
+    <!-- End Clients Section -->
 
-    <!-- Scroll Top Button -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Preloader -->
-    <div id="preloader">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
