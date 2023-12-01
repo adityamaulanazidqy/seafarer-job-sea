@@ -209,9 +209,9 @@
         <?php
         include 'koneksi.php';
 
-        $sql = "SELECT id, cv, nama, passport,schengenPassport,passportExpiryDate
-         seaman_book,schengenSeamanBook,seamanBookExpiryDate
-         panama_or_liberia_ceo,schengenPanama,panamaExpiryDate
+        $sql = "SELECT id, cv, nama, passport,schengenPassport,passportExpiryDate,
+         seaman_book,schengenSeamanBook,seamanBookExpiryDate,
+         panama_or_liberia_ceo,schengenPanama,panamaExpiryDate,
          visa,schengenVisa,visaExpiryDate,
          ijazah_endorsement_coc, 
          cop, gmdss_endorsement, goc_oru, yellow_fever, vaccine FROM karyawan";
