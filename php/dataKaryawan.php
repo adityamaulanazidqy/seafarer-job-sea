@@ -209,6 +209,14 @@
                     <th>Phone Number</th>
                     <th>Email Address</th>
                     <th>Skype ID</th>
+                    <th>schengen Passport</th>
+                    <th>passport ExpiryDate</th>
+                    <th>schengen SeamanBook</th>
+                    <th>seamanBook ExpiryDate</th>
+                    <th>schengen Panama</th>
+                    <th>panama ExpiryDate</th>
+                    <th>schengen Visa</th>
+                    <th>visa ExpiryDate</th>
                     <!-- Tambahkan kolom lainnya sesuai dengan kebutuhan -->
                 </tr>
             </thead>
@@ -237,6 +245,14 @@
                         echo "<td>" . $row["nomor_telepon"] . "</td>";
                         echo "<td>" . $row["email_address"] . "</td>";
                         echo "<td>" . $row["skype_id"] . "</td>";
+                        echo "<td>" . $row["schengenPassport"] . "</td>";
+                        echo "<td>" . $row["passportExpiryDate"] . "</td>";
+                        echo "<td>" . $row["schengenSeamanBook"] . "</td>";
+                        echo "<td>" . $row["seamanBookExpiryDate"] . "</td>";
+                        echo "<td>" . $row["schengenPanama"] . "</td>";
+                        echo "<td>" . $row["panamaExpiryDate"] . "</td>";
+                        echo "<td>" . $row["schengenVisa"] . "</td>";
+                        echo "<td>" . $row["visaExpiryDate"] . "</td>";
                         // Tambahkan kolom lainnya sesuai dengan kebutuhan
                         echo "</tr>";
                     }
