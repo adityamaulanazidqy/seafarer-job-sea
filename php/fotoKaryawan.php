@@ -223,20 +223,20 @@
             $nama = $row['nama'];
 
             $passport = $row['passport'];
-            $schengenPassport = $_POST['schengenPassport'];
-            $passportExpiryDate = $_POST['passportExpiryDate'];
+            $schengenPassport = $row['schengenPassport'];
+            $passportExpiryDate = $row['passportExpiryDate'];
 
             $seaman_book = $row['seaman_book'];
-            $schengenSeamanBook = $_POST['schengenSeamanBook'];
-            $seamanBookExpiryDate = $_POST['seamanBookExpiryDate'];
+            $schengenSeamanBook = $row['schengenSeamanBook'];
+            $seamanBookExpiryDate = $row['seamanBookExpiryDate'];
 
             $panama_or_liberia_ceo = $row['panama_or_liberia_ceo'];
-            $schengenPanama = $_POST['schengenPanama'];
-            $panamaExpiryDate = $_POST['panamaExpiryDate'];
+            $schengenPanama = $row['schengenPanama'];
+            $panamaExpiryDate = $row['panamaExpiryDate'];
 
             $visa = $row['visa'];
-            $schengenVisa = $_POST['schengenVisa'];
-            $visaExpiryDate = $_POST['visaExpiryDate'];
+            $schengenVisa = $row['schengenVisa'];
+            $visaExpiryDate = $row['visaExpiryDate'];
 
             $ijazah_endorsement_coc = $row['ijazah_endorsement_coc'];
             $cop = $row['cop'];
