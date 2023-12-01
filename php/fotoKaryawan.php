@@ -216,10 +216,23 @@
             $id = $row['id'];
             $cv = $row['cv'];
             $nama = $row['nama'];
+
             $passport = $row['passport'];
+            $schengenPassport = $_POST['schengenPassport'];
+            $passportExpiryDate = $_POST['passportExpiryDate'];
+
             $seaman_book = $row['seaman_book'];
+            $schengenSeamanBook = $_POST['schengenSeamanBook'];
+            $seamanBookExpiryDate = $_POST['seamanBookExpiryDate'];
+
             $panama_or_liberia_ceo = $row['panama_or_liberia_ceo'];
+            $schengenPanama = $_POST['schengenPanama'];
+            $panamaExpiryDate = $_POST['panamaExpiryDate'];
+
             $visa = $row['visa'];
+            $schengenVisa = $_POST['schengenVisa'];
+            $visaExpiryDate = $_POST['visaExpiryDate'];
+
             $ijazah_endorsement_coc = $row['ijazah_endorsement_coc'];
             $cop = $row['cop'];
             $gmdss_endorsement = $row['gmdss_endorsement'];
@@ -236,18 +249,26 @@
             if (!empty($passport)) {
                 echo "<img src='../assets/img/documentKaryawan/$passport' alt='Paspor'>";
                 echo "<p>Document : Paspor</p>";
+                echo "<p>schengen Passport : $schengenPassport</p>";
+                echo "<p>passport ExpiryDate : $passportExpiryDate</p>";
             }
             if (!empty($seaman_book)) {
                 echo "<img src='../assets/img/documentKaryawan/$seaman_book' alt='Seaman Book'>";
                 echo "<p>Document : Seaman Book</p>";
+                echo "<p>schengen SeamanBook : $schengenSeamanBook</p>";
+                echo "<p>seamanBook ExpiryDate : $seamanBookExpiryDate</p>";
             }
             if (!empty($panama_or_liberia_ceo)) {
                 echo "<img src='../assets/img/documentKaryawan/$panama_or_liberia_ceo' alt='Seaman Book'>";
                 echo "<p>Document : Panama or liberia ceo</p>";
+                echo "<p>schengen Panama : $schengenPanama</p>";
+                echo "<p>panama ExpiryDate : $panamaExpiryDate</p>";
             }
             if (!empty($visa)) {
                 echo "<img src='../assets/img/documentKaryawan/$visa' alt='Visa'>";
                 echo "<p>Document : Visa</p>";
+                echo "<p>schengen Visa : $schengenVisa</p>";
+                echo "<p>visa ExpiryDate : $visaExpiryDate</p>";
             }
             if (!empty($ijazah_endorsement_coc)) {
                 echo "<img src='../assets/img/documentKaryawan/$ijazah_endorsement_coc' alt='ijazah endorsement coc'>";
