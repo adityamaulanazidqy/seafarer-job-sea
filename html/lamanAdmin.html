@@ -330,18 +330,13 @@
       </div>
     </div>
 
-    <script src="../js/addLowongan.js"></script>
+    <script src="../assets/js/addLowongan.js"></script>
     <script>
       // Function to check for the "popup" query string parameter and display the popup if found
       function checkForPopup() {
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('popup') && urlParams.get('popup') === 'success') {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href="#">Why do I have this issue?</a>',
-          });
+          showPopup();
         }
       }
 
