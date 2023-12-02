@@ -336,7 +336,13 @@
       function checkForPopup() {
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('popup') && urlParams.get('popup') === 'success') {
-          showPopup();
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+          // showPopup();
         }
       }
 
