@@ -213,7 +213,7 @@
 
         button {
             background-color: #34efdf;
-            color: #ffffff;
+            color: #1d3c45;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -223,7 +223,7 @@
         }
 
         button:hover {
-            background-color: #1d3c45;
+            background-color: #147e8e;
         }
     </style>
 </head>
