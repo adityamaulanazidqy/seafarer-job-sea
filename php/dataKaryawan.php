@@ -212,8 +212,8 @@
         }
 
         button {
-            background-color: #34efdf;
-            color: #1d3c45;
+            background-color: #1d3c45;
+            color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
