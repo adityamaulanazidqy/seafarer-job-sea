@@ -210,6 +210,21 @@
                 padding: 8px;
             }
         }
+
+        button {
+            background-color: #34efdf;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #1d3c45;
+        }
     </style>
 </head>
 
