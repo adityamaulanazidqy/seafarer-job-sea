@@ -8,6 +8,38 @@
     <!-- Favicons -->
     <link href="../assets/img/icon.png" rel="icon" />
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <script>
+        function exportToExcel(tableId, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableId);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'export_excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
     <style>
         /* Reset default margin and padding for all elements */
         * {
@@ -192,8 +224,9 @@
             <li class="upward"><a href="adminLowonganKerja.php">Lowongan</a></li>
             <!-- <li class="forward"><a href="#">Feedback</a></li> -->
         </ul>
+        <button onclick="exportToExcel('data-table', 'DataKaryawan')">Export to Excel</button>
         <h1>Daftar Karyawan</h1>
-        <table>
+        <table id="data-table">
             <thead>
                 <tr>
                     <th>ID</th>
