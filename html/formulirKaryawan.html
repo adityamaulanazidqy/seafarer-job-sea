@@ -1,409 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laman | Formulir Karyawan</title>
-    <link rel="stylesheet" href="../assets/css/formulirStyle.css" />
-    <!-- Favicons -->
-    <link href="../assets/img/icon.png" rel="icon" />
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-    <!-- Tambahkan tautan ke FontAwesome (jika belum ada) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-BvD6KMXi3QzoI4esqp5T5C5APw5YOvTTGuo5W4FnUgfc/y6KX3oyw2UqBLYDybi7" crossorigin="anonymous" />
 
-    <script>
-      // Kode untuk mengirim formulir dan menangani respons dari server
-      document.getElementById('formulir').addEventListener('submit', function (e) {
-        e.preventDefault();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laman | Formulir Karyawan</title>
+  <link rel="stylesheet" href="../assets/css/formulirStyle.css" />
+  <!-- Favicons -->
+  <link href="../assets/img/icon.png" rel="icon" />
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <!-- Tambahkan tautan ke FontAwesome (jika belum ada) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha384-BvD6KMXi3QzoI4esqp5T5C5APw5YOvTTGuo5W4FnUgfc/y6KX3oyw2UqBLYDybi7" crossorigin="anonymous" />
 
-        fetch('../php/prosesForm.php', {
-          method: 'POST',
-          body: new FormData(this),
+  <script>
+    // Kode untuk mengirim formulir dan menangani respons dari server
+    document.getElementById('formulir').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      fetch('../php/prosesForm.php', {
+        method: 'POST',
+        body: new FormData(this),
+      })
+        .then(function (response) {
+          return response.json();
         })
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            if (data.status === 'success') {
-              // Tampilkan SweetAlert2 untuk respons sukses
-              Swal.fire({
-                icon: 'success',
-                title: 'Data berhasil disimpan!',
-                text: 'Terima kasih atas pengisian formulir.',
-                footer: '<a href="">Why do I have this issue?</a>',
-              });
+        .then(function (data) {
+          if (data.status === 'success') {
+            // Tampilkan SweetAlert2 untuk respons sukses
+            Swal.fire({
+              icon: 'success',
+              title: 'Data berhasil disimpan!',
+              text: 'Terima kasih atas pengisian formulir.',
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
 
-              // Sembunyikan formulir
-              document.getElementById('formulir').style.display = 'none';
+            // Sembunyikan formulir
+            document.getElementById('formulir').style.display = 'none';
 
-              // Tampilkan laman pemberitahuan
-              document.getElementById('notification').style.display = 'block';
-            } else {
-              // Menangani kesalahan pesan atau respons lain jika diperlukan
-              Swal.fire({
-                icon: 'error',
-                title: 'Data Gagal Disimpan!',
-                text: 'Mohon Mengisi Formulirnya Dengan Benar',
-                footer: '<a href="">Why do I have this issue?</a>',
-              });
-            }
-          })
-          .catch(function (error) {
-            console.error('Error: ' + error);
-          });
-      });
+            // Tampilkan laman pemberitahuan
+            document.getElementById('notification').style.display = 'block';
+          } else {
+            // Menangani kesalahan pesan atau respons lain jika diperlukan
+            Swal.fire({
+              icon: 'error',
+              title: 'Data Gagal Disimpan!',
+              text: 'Mohon Mengisi Formulirnya Dengan Benar',
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
+          }
+        })
+        .catch(function (error) {
+          console.error('Error: ' + error);
+        });
+    });
 
-      function validateForm() {
-        var nama = document.getElementById('nama').value;
-        var umur = document.getElementById('umur').value;
-        var email = document.getElementById('email_address').value;
-        var nomorTelepon = document.getElementById('nomor_telepon').value;
-        var dataBerhasilDisimpan = false;
+    function validateForm() {
+      var nama = document.getElementById('nama').value;
+      var umur = document.getElementById('umur').value;
+      var email = document.getElementById('email_address').value;
+      var nomorTelepon = document.getElementById('nomor_telepon').value;
+      var dataBerhasilDisimpan = false;
 
-        // Validasi Nama Lengkap (tidak boleh kosong)
-        if (nama.trim() === '' || isNaN(umur) || umur <= 0 || !email.match(emailPattern) || isNaN(nomorTelepon) || nomorTelepon.length < 10) {
-          // Menampilkan pesan gagal menyimpan data
-          var messageElement = document.querySelector('.message');
-          messageElement.textContent = 'Gagal menyimpan data. Pastikan Anda mengisi semua bidang dengan benar.';
-          messageElement.style.display = 'block';
+      // Validasi Nama Lengkap (tidak boleh kosong)
+      if (nama.trim() === '' || isNaN(umur) || umur <= 0 || !email.match(emailPattern) || isNaN(nomorTelepon) || nomorTelepon.length < 10) {
+        // Menampilkan pesan gagal menyimpan data
+        var messageElement = document.querySelector('.message');
+        messageElement.textContent = 'Gagal menyimpan data. Pastikan Anda mengisi semua bidang dengan benar.';
+        messageElement.style.display = 'block';
 
-          return false; // Tidak perlu mengirimkan formulir saat ada kesalahan
-        }
-
-        // Validasi Umur (harus angka)
-        if (isNaN(umur) || umur < 0) {
-          alert('Umur harus diisi dengan angka positif');
-          return false;
-        }
-
-        // Validasi Email
-        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!email.match(emailPattern)) {
-          alert('Email tidak valid');
-          return false;
-        }
-
-        // Validasi Nomor Telepon (harus angka)
-        if (isNaN(nomorTelepon) || nomorTelepon.length < 10) {
-          alert('Nomor Telepon harus diisi dengan angka dan minimal 10 digit');
-          return false;
-        }
-
-        // Jika semua validasi berhasil, kembalikan true
-        return true;
+        return false; // Tidak perlu mengirimkan formulir saat ada kesalahan
       }
 
-      // function sendDataToServer() {
-      //   var xhr = new XMLHttpRequest();
-      //   var formData = new FormData(document.querySelector('form'));
-
-      //   xhr.open('POST', '../php/prosesForm.php', true);
-      //   xhr.onreadystatechange = function () {
-      //     if (xhr.readyState === 4 && xhr.status === 200) {
-      //       var response = JSON.parse(xhr.responseText);
-
-      //       if (response.status === 'success') {
-      //         // Jika penyimpanan data berhasil
-      //         Swal.fire({
-      //           icon: 'success',
-      //           title: 'Oops...',
-      //           text: 'Something went wrong!',
-      //           footer: '<a href="">Why do I have this issue?</a>',
-      //         });
-      //         // console.log(response.message);
-      //       } else {
-      //         // Jika terjadi kesalahan
-      //         Swal.fire({
-      //           icon: 'error',
-      //           title: 'Data Gagal Disimpan!',
-      //           text: 'Mohon Mengisi Formulirnya Dengan Benar',
-      //           footer: '<a href="">Why do I have this issue?</a>',
-      //         });
-      //         // console.error(response.message);
-      //       }
-      //     }
-      //   };
-
-      //   xhr.send(formData);
-      // }
-
-      function confirmReset() {
-        var confirmation = confirm('Anda yakin ingin menulis ulang data?');
-        if (confirmation) {
-          // Reset formulir jika pengguna mengonfirmasi
-          document.getElementById('resetBtn').form.reset();
-        }
-        return confirmation; // Mengembalikan true jika dikonfirmasi, false jika dibatalkan
+      // Validasi Umur (harus angka)
+      if (isNaN(umur) || umur < 0) {
+        alert('Umur harus diisi dengan angka positif');
+        return false;
       }
 
-      // Panggil checkRankInput dan checkAvailability saat halaman dimuat
-      window.onload = function () {
-        checkRankInput();
-        checkAvailability();
-      };
-    </script>
-    <style>
-      .container p {
-        margin-top: 0px;
+      // Validasi Email
+      var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!email.match(emailPattern)) {
+        alert('Email tidak valid');
+        return false;
       }
 
-      input[type='text'],
-      input[type='alamat'],
-      input[type='lahir'],
-      input[type='email'],
-      input[type='password'],
-      input[type='nomor'],
-      input[type='gaji'],
-      select,
-      input[type='date'] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
+      // Validasi Nomor Telepon (harus angka)
+      if (isNaN(nomorTelepon) || nomorTelepon.length < 10) {
+        alert('Nomor Telepon harus diisi dengan angka dan minimal 10 digit');
+        return false;
       }
 
-      /* CSS untuk elemen input file */
-      input[type='file'] {
-        width: 100%;
-        /* Mengatur lebar elemen input file agar sama dengan form */
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
+      // Jika semua validasi berhasil, kembalikan true
+      return true;
+    }
+
+    // function sendDataToServer() {
+    //   var xhr = new XMLHttpRequest();
+    //   var formData = new FormData(document.querySelector('form'));
+
+    //   xhr.open('POST', '../php/prosesForm.php', true);
+    //   xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //       var response = JSON.parse(xhr.responseText);
+
+    //       if (response.status === 'success') {
+    //         // Jika penyimpanan data berhasil
+    //         Swal.fire({
+    //           icon: 'success',
+    //           title: 'Oops...',
+    //           text: 'Something went wrong!',
+    //           footer: '<a href="">Why do I have this issue?</a>',
+    //         });
+    //         // console.log(response.message);
+    //       } else {
+    //         // Jika terjadi kesalahan
+    //         Swal.fire({
+    //           icon: 'error',
+    //           title: 'Data Gagal Disimpan!',
+    //           text: 'Mohon Mengisi Formulirnya Dengan Benar',
+    //           footer: '<a href="">Why do I have this issue?</a>',
+    //         });
+    //         // console.error(response.message);
+    //       }
+    //     }
+    //   };
+
+    //   xhr.send(formData);
+    // }
+
+    function confirmReset() {
+      var confirmation = confirm('Anda yakin ingin menulis ulang data?');
+      if (confirmation) {
+        // Reset formulir jika pengguna mengonfirmasi
+        document.getElementById('resetBtn').form.reset();
       }
+      return confirmation; // Mengembalikan true jika dikonfirmasi, false jika dibatalkan
+    }
 
-      /* CSS untuk label unggah foto */
-      label[for='foto'] {
-        margin-bottom: 10px;
-        display: block;
-        /* Mengubah label menjadi elemen block agar tidak melebar */
-      }
+    // Panggil checkRankInput dan checkAvailability saat halaman dimuat
+    window.onload = function () {
+      checkRankInput();
+      checkAvailability();
+    };
+  </script>
+  <style>
+    .container p {
+      margin-top: 0px;
+    }
 
-      /* Gaya untuk label ketika input file telah dipilih */
-      input[type='file']:focus + label[for='foto'] {
-        outline: 2px solid #1d3c45;
-        outline-style: dashed;
-        outline-offset: -2px;
-      }
+    input[type='text'],
+    input[type='alamat'],
+    input[type='lahir'],
+    input[type='email'],
+    input[type='password'],
+    input[type='nomor'],
+    input[type='gaji'],
+    select,
+    input[type='date'] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
 
-      /* Gaya untuk nama file yang dipilih */
-      .file-name {
-        display: inline-block;
-        margin-left: 10px;
-        font-weight: bold;
-        color: #1d3c45;
-      }
+    /* CSS untuk elemen input file */
+    input[type='file'] {
+      width: 100%;
+      /* Mengatur lebar elemen input file agar sama dengan form */
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
 
-      .sponsor-logos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        /* Agar logo sponsor bisa wrap ke baris baru jika terlalu banyak */
-        margin-top: -20px;
-        /* Atur jarak antara class "information" dan logo sponsor */
-      }
+    /* CSS untuk label unggah foto */
+    label[for='foto'] {
+      margin-bottom: 10px;
+      display: block;
+      /* Mengubah label menjadi elemen block agar tidak melebar */
+    }
 
-      .sponsor-logo {
-        margin: 10px;
-        /* Atur jarak antara logo-logo sponsor */
-        text-align: center;
-        /* Tengahkan logo-logo sponsor */
-      }
+    /* Gaya untuk label ketika input file telah dipilih */
+    input[type='file']:focus+label[for='foto'] {
+      outline: 2px solid #1d3c45;
+      outline-style: dashed;
+      outline-offset: -2px;
+    }
 
-      .sponsor-logo a {
-        display: block;
-        /* Membuat tautan mengisi seluruh area logo */
-      }
+    /* Gaya untuk nama file yang dipilih */
+    .file-name {
+      display: inline-block;
+      margin-left: 10px;
+      font-weight: bold;
+      color: #1d3c45;
+    }
 
-      .sponsor-logo img {
-        max-width: 68px;
-        /* Sesuaikan ukuran maksimum sesuai kebutuhan */
-        max-height: 68px;
-        transition: transform 0.2s;
-        /* Efek animasi saat hover */
-      }
+    .sponsor-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* Agar logo sponsor bisa wrap ke baris baru jika terlalu banyak */
+      margin-top: -20px;
+      /* Atur jarak antara class "information" dan logo sponsor */
+    }
 
-      .sponsor-logo img:hover {
-        transform: scale(1.1);
-        /* Efek perbesaran saat hover */
-      }
-      section {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background: #e3f2fd;
-      }
-      button {
-        font-size: 18px;
-        font-weight: 400;
-        color: #fff;
-        padding: 14px 22px;
-        border: none;
-        background: #4070f4;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #265df2;
-      }
-    </style>
-  </head>
+    .sponsor-logo {
+      margin: 10px;
+      /* Atur jarak antara logo-logo sponsor */
+      text-align: center;
+      /* Tengahkan logo-logo sponsor */
+    }
 
-  <body>
-    <header>
-      <h1>Job Pelaut Indonesia</h1>
-    </header>
-    <div id="notification" style="display: none">
-      <p>Your CV and Resume are sent to the shipping companies to be reviewed.</p>
-      <h2>"MAINTAIN THE COURSE"</h2>
-      <p>Stand By And Be Ready For Interview.</p>
-      <p>Thank You</p>
-    </div>
-    <div class="container">
-      <h1 style="margin-bottom: 10px">Formulir Karyawan</h1>
-      <form action="../php/prosesForm.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" id="formulir">
-        <label for="nama">Nama Lengkap</label>
-        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Anda" />
+    .sponsor-logo a {
+      display: block;
+      /* Membuat tautan mengisi seluruh area logo */
+    }
 
-        <label for="umur">Umur</label>
-        <input type="text" id="umur" name="umur" placeholder="Masukkan Umur Anda" />
+    .sponsor-logo img {
+      max-width: 68px;
+      /* Sesuaikan ukuran maksimum sesuai kebutuhan */
+      max-height: 68px;
+      transition: transform 0.2s;
+      /* Efek animasi saat hover */
+    }
 
-        <label for="posisi">Rank</label>
-        <select id="posisi" name="posisi" onchange="checkRankInput()">
-          <option value="MASTER">MASTER</option>
-          <option value="CE">CE</option>
-          <option value="CO">CO</option>
-          <option value="2E">2E</option>
-          <option value="2O">2O</option>
-          <option value="3E">3E</option>
-          <option value="3O">3O</option>
-          <option value="4E">4E</option>
-          <option value="ETO">ETO</option>
-          <option value="BOSUN">BOSUN</option>
-          <option value="FITTER">FITTER</option>
-          <option value="COOK">COOK</option>
-          <option value="AB">AB</option>
-          <option value="OILER">OILER</option>
-          <option value="OS">OS</option>
-          <option value="WIPER">WIPER</option>
-          <option value="MESSMAN">MESSMAN</option>
-        </select>
+    .sponsor-logo img:hover {
+      transform: scale(1.1);
+      /* Efek perbesaran saat hover */
+    }
 
-        <label for="jenis_kapal">Jenis Kapal Yang Dipilih</label>
-        <select id="jenis_kapal" name="jenis_kapal">
-          <option value="Kapal Penumpang">Kapal Bulk Carrier</option>
-          <option value="Kapal Barang">Kapal General Cargo</option>
-          <option value="Kapal Ikan">Kapal Container</option>
-          <option value="Kapal Ikan">Kapal Tanker</option>
-          <option value="Kapal Ikan">Kapal Tug</option>
-          <option value="Kapal Ikan">Kapal lct</option>
-          <option value="Kapal Ikan">Kapal ahts</option>
-          <option value="Kapal Ikan">Kapal Barge</option>
-          <option value="Kapal Ikan">Kapal Passanger</option>
-          <!-- Tambahkan jenis kapal lainnya sesuai kebutuhan -->
-        </select>
+    section {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background: #e3f2fd;
+    }
 
-        <label for="class">Class</label>
-        <input type="text" id="class" name="class" placeholder="Masukkan Class" />
+    button {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      padding: 14px 22px;
+      border: none;
+      background: #4070f4;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-        <label for="last_vessel_type">Last Vessel Type</label>
-        <input type="text" id="last_vessel_type" name="last_vessel_type" placeholder="Masukkan Tipe Kapal Terakhir" />
+    button:hover {
+      background-color: #265df2;
+    }
+  </style>
+</head>
 
-        <label for="grt">GRT</label>
-        <input type="text" id="grt" name="grt" placeholder="Masukkan GRT" />
+<body>
+  <header>
+    <h1>Job Pelaut Indonesia</h1>
+  </header>
+  <div id="notification" style="display: none">
+    <p>Your CV and Resume are sent to the shipping companies to be reviewed.</p>
+    <h2>"MAINTAIN THE COURSE"</h2>
+    <p>Stand By And Be Ready For Interview.</p>
+    <p>Thank You</p>
+  </div>
+  <div class="container">
+    <h1 style="margin-bottom: 10px">Employee Form</h1>
+    <form action="../php/prosesForm.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()"
+      id="formulir">
+      <label for="nama">Full name</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Anda" />
 
-        <label for="trading_area">Trading Area</label>
-        <input type="text" id="trading_area" name="trading_area" placeholder="Masukkan Area Pertukaran" />
+      <label for="umur">Age</label>
+      <input type="text" id="umur" name="umur" placeholder="Masukkan Umur Anda" />
 
-        <label for="salary">Salary</label>
-        <input type="text" id="salary" name="salary" placeholder="Masukkan Gaji yang Diinginkan" />
+      <label for="posisi">Rank</label>
+      <select id="posisi" name="posisi" onchange="checkRankInput()">
+        <option value="MASTER">MASTER</option>
+        <option value="CE">CE</option>
+        <option value="CO">CO</option>
+        <option value="2E">2E</option>
+        <option value="2O">2O</option>
+        <option value="3E">3E</option>
+        <option value="3O">3O</option>
+        <option value="4E">4E</option>
+        <option value="ETO">ETO</option>
+        <option value="BOSUN">BOSUN</option>
+        <option value="FITTER">FITTER</option>
+        <option value="COOK">COOK</option>
+        <option value="AB">AB</option>
+        <option value="OILER">OILER</option>
+        <option value="OS">OS</option>
+        <option value="WIPER">WIPER</option>
+        <option value="MESSMAN">MESSMAN</option>
+      </select>
 
-        <!-- Input teks "Where" yang awalnya disembunyikan -->
-        <label for="available_in_jakarta">Available In Jakarta</label>
-        <input type="text" id="available" name="available" placeholder="Masukkan Lokasi" />
+      <label for="jenis_kapal">Type of Ship Selected</label>
+      <select id="jenis_kapal" name="jenis_kapal">
+        <option value="Kapal Penumpang">Bulk Carrier Ships</option>
+        <option value="Kapal Barang">General Cargo Ship</option>
+        <option value="Kapal Ikan">Container Ship</option>
+        <option value="Kapal Ikan">Tanker Ship</option>
+        <option value="Kapal Ikan">Tugboat</option>
+        <option value="Kapal Ikan">lct ship</option>
+        <option value="Kapal Ikan">Ahts ship</option>
+        <option value="Kapal Ikan">Barge Ship</option>
+        <option value="Kapal Ikan">Passenger Ship</option>
+        <!-- Tambahkan jenis kapal lainnya sesuai kebutuhan -->
+      </select>
 
-        <label for="nomor_telepon">Nomor Telepon</label>
-        <input type="text" id="nomor_telepon" name="nomor_telepon" placeholder="Masukkan Nomor Telepon Anda" />
+      <label for="class">Class</label>
+      <input type="text" id="class" name="class" placeholder="Enter Class" />
 
-        <label for="email_address">Email Address</label>
-        <input type="email" id="email_address" name="email" placeholder="Masukkan Alamat Email Anda" />
+      <label for="last_vessel_type">Last Vessel Type</label>
+      <input type="text" id="last_vessel_type" name="last_vessel_type" placeholder="Enter the Final Ship Type" />
 
-        <label for="skype_id">Skype ID</label>
-        <input type="text" id="skype_id" name="skype_id" placeholder="Masukkan Skype ID Anda" />
+      <label for="grt">GRT</label>
+      <input type="text" id="grt" name="grt" placeholder="Enter GRT" />
 
-        <label for="cv">CV</label>
-        <input type="file" id="cv" name="cv" accept="image/pdf" />
+      <label for="trading_area">Trading Area</label>
+      <input type="text" id="trading_area" name="trading_area" placeholder="Enter the Exchange Area" />
 
-        <label for="passport">Paspor</label>
-        <input type="file" id="passport" name="passport" accept="image/*" />
-        <input type="text" id="schengenPassport" name="schengenPassport" placeholder="contents of schengen" />
-        <p>Fill in Explry Date Passport</p>
-        <input type="date" id="passportExpiryDate" name="passportExpiryDate" accept="image/*" />
+      <label for="salary">Salary</label>
+      <input type="text" id="salary" name="salary" placeholder="Enter Desired Salary" />
 
-        <label for="seaman_book">Seaman Book</label>
-        <input type="file" id="seaman_book" name="seaman_book" accept="image/*,application/pdf" />
-        <input type="text" id="schengenSeamanBook" name="schengenSeamanBook" placeholder="contents of Seaman Book" />
-        <p>Fill in Explry Date Seaman Book</p>
-        <input type="date" id="seamanBookExpiryDate" name="seamanBookExpiryDate" accept="image/*,application/pdf" />
+      <!-- Input teks "Where" yang awalnya disembunyikan -->
+      <label for="available_in_jakarta">Available In Jakarta</label>
+      <input type="text" id="available" name="available" placeholder="Enter Location" />
 
-        <label for="panama_or_liberia_ceo">Panama or Liberia CEO</label>
-        <input type="file" id="panama_or_liberia_ceo" name="panama_or_liberia_ceo" accept="image/*,application/pdf" />
-        <input type="text" id="schengenPanama" name="schengenPanama" placeholder="contents of Panama" />
-        <p>Fill in Explry Date Panama</p>
-        <input type="date" id="panamaExpiryDate" name="panamaExpiryDate" accept="image/*,application/pdf" />
+      <label for="nomor_telepon">Nomor Telepon</label>
+      <input type="text" id="nomor_telepon" name="nomor_telepon" placeholder="Enter your Phone Number" />
 
-        <label for="visa">Visa</label>
-        <input type="file" id="visa" name="visa" accept="image/*,application/pdf" />
-        <input type="text" id="schengenVisa" name="schengenVisa" placeholder="Isi Negara" />
-        <p>Fill in Explry Date visa</p>
-        <input type="date" id="visaExpiryDate" name="visaExpiryDate" accept="image/*,application/pdf" />
+      <label for="email_address">Email Address</label>
+      <input type="email" id="email_address" name="email" placeholder="Enter your Email Address" />
 
-        <label for="ijazah_endorsement_coc">Ijazah Endorsement / COC</label>
-        <input type="file" id="ijazah_endorsement_coc" name="ijazah_endorsement_coc" accept="image/*" />
+      <label for="skype_id">Skype ID</label>
+      <input type="text" id="skype_id" name="skype_id" placeholder="Enter your Skype ID" />
 
-        <label for="cop">COP</label>
-        <input type="file" id="cop" name="cop" accept="image/*" />
+      <label for="cv">CV</label>
+      <input type="file" id="cv" name="cv" accept="image/pdf" />
 
-        <label for="gmdss_endorsement">GMDSS dan Endorsement</label>
-        <input type="file" id="gmdss_endorsement" name="gmdss_endorsement" accept="image/*" />
+      <label for="passport">Paspor</label>
+      <input type="file" id="passport" name="passport" accept="image/*" />
+      <input type="text" id="schengenPassport" name="schengenPassport" placeholder="contents of schengen" />
+      <p>Fill in Explry Date Passport</p>
+      <input type="date" id="passportExpiryDate" name="passportExpiryDate" accept="image/*" />
 
-        <label for="goc_oru">GOC ORU</label>
-        <input type="file" id="goc_oru" name="goc_oru" accept="image/*" />
+      <label for="seaman_book">Seaman Book</label>
+      <input type="file" id="seaman_book" name="seaman_book" accept="image/*,application/pdf" />
+      <input type="text" id="schengenSeamanBook" name="schengenSeamanBook" placeholder="contents of Seaman Book" />
+      <p>Fill in Explry Date Seaman Book</p>
+      <input type="date" id="seamanBookExpiryDate" name="seamanBookExpiryDate" accept="image/*,application/pdf" />
 
-        <label for="yellow_fever">Yellow Fever</label>
-        <input type="file" id="yellow_fever" name="yellow_fever" accept="image/*" />
+      <label for="panama_or_liberia_ceo">Panama or Liberia CEO</label>
+      <input type="file" id="panama_or_liberia_ceo" name="panama_or_liberia_ceo" accept="image/*,application/pdf" />
+      <input type="text" id="schengenPanama" name="schengenPanama" placeholder="contents of Panama" />
+      <p>Fill in Explry Date Panama</p>
+      <input type="date" id="panamaExpiryDate" name="panamaExpiryDate" accept="image/*,application/pdf" />
 
-        <label for="vaccine">Vaccine</label>
-        <input type="file" id="vaccine" name="vaccine" accept="image/*" />
+      <label for="visa">Visa</label>
+      <input type="file" id="visa" name="visa" accept="image/*,application/pdf" />
+      <input type="text" id="schengenVisa" name="schengenVisa" placeholder="Isi Negara" />
+      <p>Fill in Explry Date visa</p>
+      <input type="date" id="visaExpiryDate" name="visaExpiryDate" accept="image/*,application/pdf" />
 
-        <!-- Tambahkan input teks "Last Contract" -->
-        <label for="last_contract">Last Contract</label>
-        <input type="text" id="last_contract" name="last_contract" placeholder="Masukkan Informasi Kontrak Terakhir Anda" />
+      <label for="ijazah_endorsement_coc">Ijazah Endorsement / COC</label>
+      <input type="file" id="ijazah_endorsement_coc" name="ijazah_endorsement_coc" accept="image/*" />
 
-        <!-- Tambahkan input teks "Last Appraisal" -->
-        <label for="last_appraisal">Last Appraisal</label>
-        <input type="text" id="last_appraisal" name="last_appraisal" placeholder="Masukkan Informasi Penilaian Terakhir Anda" />
+      <label for="cop">COP</label>
+      <input type="file" id="cop" name="cop" accept="image/*" />
 
-        <label for="tgl_pembuatan">Tanggal Pembuatan</label>
-        <input type="date" id="tgl_pembuatan" name="tgl_pembuatan" />
+      <label for="gmdss_endorsement">GMDSS dan Endorsement</label>
+      <input type="file" id="gmdss_endorsement" name="gmdss_endorsement" accept="image/*" />
 
-        <!-- Pesan kesalahan -->
-        <div class="message" style="color: red"></div>
+      <label for="goc_oru">GOC ORU</label>
+      <input type="file" id="goc_oru" name="goc_oru" accept="image/*" />
 
-        <div class="button-container">
-          <input type="submit" value="Simpan" />
-          <input type="reset" value="Reset" id="resetBtn" onclick="return confirmReset()" />
-        </div>
-      </form>
-    </div>
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2023 Seafarer Jobs</p>
-        <!-- <ul class="social-icons">
+      <label for="yellow_fever">Yellow Fever</label>
+      <input type="file" id="yellow_fever" name="yellow_fever" accept="image/*" />
+
+      <label for="vaccine">Vaccine</label>
+      <input type="file" id="vaccine" name="vaccine" accept="image/*" />
+
+      <!-- Tambahkan input teks "Last Contract" -->
+      <label for="last_contract">Last Contract</label>
+      <input type="text" id="last_contract" name="last_contract" placeholder="Enter your latest contract information" />
+
+      <!-- Tambahkan input teks "Last Appraisal" -->
+      <label for="last_appraisal">Last Appraisal</label>
+      <input type="text" id="last_appraisal" name="last_appraisal"
+        placeholder="Enter your Last Assessment Information" />
+
+      <label for="tgl_pembuatan">Tanggal Pembuatan</label>
+      <input type="date" id="tgl_pembuatan" name="tgl_pembuatan" />
+
+      <!-- Pesan kesalahan -->
+      <div class="message" style="color: red"></div>
+
+      <div class="button-container">
+        <input type="submit" value="Simpan" />
+        <input type="reset" value="Reset" id="resetBtn" onclick="return confirmReset()" />
+      </div>
+    </form>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2023 Seafarer Jobs</p>
+      <!-- <ul class="social-icons">
           <li>
             <a href="#"><img src="../images/fb.png" alt="Facebook" /></a>
           </li>
@@ -414,8 +421,9 @@
             <a href="#"><img src="../images/ig.png" alt="Instagram" /></a>
           </li>
         </ul> -->
-      </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
 </html>

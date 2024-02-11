@@ -203,7 +203,7 @@
 
 <body>
     <header>
-        <h1>Lowongan Kerja</h1>
+        <h1>job vacancy</h1>
     </header>
     <div class="container">
         <?php
@@ -222,13 +222,13 @@
                 // Tampilkan data lowongan pekerjaan dalam div .lowongan-item
                 echo "<div class='lowongan-item'>";
                 // echo "<h1>{$row['judul']}</h1>";
-                echo "<p>Lowongan Kerja Ke : " . $nomor . "</p>"; // Menampilkan nomor
+                echo "<p>Job Vacancies To : " . $nomor . "</p>"; // Menampilkan nomor
                 echo "<p>{$row['deskripsi']}</p>";
                 // echo "<p>Lokasi : {$row['lokasi']}</p>";
-                echo "<p>Tanggal Publikasi : {$row['tanggal_publikasi']}</p>";
+                echo "<p>Publication Date : {$row['tanggal_publikasi']}</p>";
 
                 // Tombol "Hubungi Admin" dengan tautan ke email atau kontak admin
-                echo "<button class='hubungi-admin' style='background-color: #1d3c45; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 10px; transition: background-color 0.3s;'><a style='color: #fff; text-decoration: none;' href='../html/formulirKaryawan.html'>Lamar Lowongan</a></button>";
+                echo "<button class='hubungi-admin' style='background-color: #1d3c45; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 10px; transition: background-color 0.3s;'><a style='color: #fff; text-decoration: none;' href='../html/formulirKaryawan.html'>Apply for Vacancies</a></button>";
                 // echo "<button class='hubungi-admin' onclick='hubungiAdmin(\"{$row['judul']}\", {$row['id']})' data-id='{$row['id']}'>Lamar Lowongan</button>";
                 echo "</div>";
                 // Tambahkan 1 ke nomor
@@ -236,29 +236,29 @@
             }
         } else {
             // Tampilkan pesan jika tidak ada lowongan pekerjaan
-            echo "<p>Maaf, tidak ada lowongan pekerjaan yang tersedia saat ini.</p>";
+            echo "<p>Sorry, there are no job vacancies available at this time.</p>";
         }
         ?>
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h1 id="modalTitle">Lamar Lowongan</h1>
+            <h1 id="modalTitle">Apply for Vacancies</h1>
             <hr>
             <form action="prosesPesanKaryawan.php" method="POST" id="contactForm">
-                <label for="nama">Nama:</label>
+                <label for="nama">Name:</label>
                 <input type="text" id="nama" name="nama" placeholder="Enter Your Name" required><br><br>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter Your Email" required><br><br>
 
-                <label for="pesan">Pesan:</label>
+                <label for="pesan">Message:</label>
                 <textarea id="pesan" name="pesan" rows="4" required></textarea><br><br>
 
                 <!-- Input tersembunyi untuk menyimpan ID lowongan yang dipilih -->
                 <input type="hidden" id="lowongan_id" name="lowongan_id">
 
-                <button type="button" class="hubungi-admin" onclick="kirimPesan()">Kirim Pesan</button>
+                <button type="button" class="hubungi-admin" onclick="kirimPesan()">Send message</button>
             </form>
         </div>
     </div>
